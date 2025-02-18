@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4q7ugrtj6to5"]
+
+[ext_resource type="Script" uid="uid://c5cca4q1rqb8r" path="res://Scripts/back_buttion_scene.gd" id="1_mtchf"]
+[ext_resource type="Texture2D" uid="uid://dilmwgl7uy6db" path="res://Graphics/Large_Back_Image.png" id="1_odclg"]
+
+[node name="BackButtionScene" type="Node2D"]
+script = ExtResource("1_mtchf")
+
+[node name="BackButton" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="LargeBackImage" type="Sprite2D" parent="BackButton"]
+position = Vector2(94, 24)
+texture = ExtResource("1_odclg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackButton"]
+position = Vector2(4, 3)
+polygon = PackedVector2Array(1, 0, 17, -2, 32, -1, 38, 3, 39, 8, 35, 13, 44, 16, 50, 20, 66, -11, 83, 18, 93, 2, 104, -6, 120, -10, 124, 2, 113, 8, 105, 17, 104, 23, 108, 25, 116, 24, 130, 17, 130, -5, 145, -8, 147, 2, 166, -10, 178, 2, 165, 12, 189, 22, 177, 48, 150, 39, 150, 45, 135, 49, 132, 45, 115, 50, 102, 49, 92, 44, 73, 50, 69, 44, 55, 45, 53, 49, 39, 48, 21, 53, 7, 54)
+
+[connection signal="input_event" from="BackButton" to="." method="_on_back_button_input_event"]
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="." method="_on_back_button_mouse_exited"]

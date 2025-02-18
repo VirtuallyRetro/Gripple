@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://buve7pnbupl1r"]
+
+[ext_resource type="Texture2D" uid="uid://ckb4348v5jhtp" path="res://Graphics/Blank_Background.png" id="1_3wtr8"]
+[ext_resource type="Script" uid="uid://dkknxgjslwfjp" path="res://Scripts/achievement_scene.gd" id="1_lkye7"]
+[ext_resource type="Texture2D" uid="uid://8j1qfbfk4gik" path="res://Graphics/High_Score_Button.png" id="2_g2lkr"]
+[ext_resource type="Texture2D" uid="uid://quq4oi1pfx8t" path="res://Graphics/Achievement_Scene_title.png" id="3_5l0c2"]
+[ext_resource type="Texture2D" uid="uid://d4h314weo568c" path="res://Graphics/Achievement_High_score.png" id="5_anhhv"]
+
+[node name="AchievementScene" type="Node2D"]
+script = ExtResource("1_lkye7")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_3wtr8")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="TextureRect" parent="."]
+offset_left = 72.0
+offset_right = 572.0
+offset_bottom = 150.0
+texture = ExtResource("3_5l0c2")
+
+[node name="HighScore" type="TextureRect" parent="."]
+offset_left = 288.0
+offset_top = 376.0
+offset_right = 352.0
+offset_bottom = 440.0
+texture = ExtResource("2_g2lkr")
+
+[node name="AchievementBanner" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("5_anhhv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfda8lx0vysyl"]
+
+[ext_resource type="Script" uid="uid://e0abc35r5nxw" path="res://Scripts/high_score_scene.gd" id="1_wm728"]
+[ext_resource type="Texture2D" uid="uid://ckb4348v5jhtp" path="res://Graphics/Blank_Background.png" id="2_2cobl"]
+[ext_resource type="Texture2D" uid="uid://b7biydxpnw6d8" path="res://Graphics/High_Score_Banner.png" id="3_5vulp"]
+[ext_resource type="PackedScene" uid="uid://c4q7ugrtj6to5" path="res://Scenes/back_buttion_scene.tscn" id="4_v8446"]
+[ext_resource type="Texture2D" uid="uid://djy06unt0wpf8" path="res://Graphics/Score_Area.png" id="5_byqq6"]
+[ext_resource type="SystemFont" uid="uid://b7agjpi0kc4br" path="res://Resources/system_fonts.tres" id="6_ovuep"]
+
+[sub_resource type="Environment" id="Environment_rjgaw"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
+[node name="HighScoreScene" type="Node2D"]
+script = ExtResource("1_wm728")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rjgaw")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2cobl")
+metadata/_edit_lock_ = true
+
+[node name="HighScoreBanner" type="TextureRect" parent="."]
+offset_left = 120.0
+offset_top = 32.0
+offset_right = 520.0
+offset_bottom = 152.0
+texture = ExtResource("3_5vulp")
+metadata/_edit_lock_ = true
+
+[node name="BackButtionScene" parent="." instance=ExtResource("4_v8446")]
+position = Vector2(224, 376)
+
+[node name="ScoreArea" type="Sprite2D" parent="."]
+position = Vector2(320, 248)
+texture = ExtResource("5_byqq6")
+
+[node name="InfoLabel1" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 334.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = "Fewest Moves : "
+horizontal_alignment = 2
+
+[node name="InfoLabel2" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 224.0
+offset_right = 334.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = "Best Time : "
+horizontal_alignment = 2
+
+[node name="InfoLabel4" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 272.0
+offset_right = 334.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = "Highest Score : "
+horizontal_alignment = 2
+
+[node name="LabelScore" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 272.0
+offset_right = 510.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = " 0"
+
+[node name="LabelMoves" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 200.0
+offset_right = 510.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = " 0"
+
+[node name="LabelTime" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 224.0
+offset_right = 510.0
+offset_bottom = 250.0
+theme_override_fonts/font = ExtResource("6_ovuep")
+text = " 0
+"

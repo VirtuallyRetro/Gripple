@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://02ei4locley5"]
+
+[ext_resource type="AudioStream" uid="uid://chw4x4upso7vl" path="res://Audio/mouse-click.mp3" id="1_c72ag"]
+
+[sub_resource type="GDScript" id="GDScript_cm631"]
+script/source = "extends Node2D
+
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
+func play_audio(audio_id: int) -> void:
+	if Game_Globals.audio_enabled == false:
+		return
+		
+	match audio_id:
+		0:
+			click_sound.play()
+"
+
+[node name="SharedResources" type="Node2D"]
+script = SubResource("GDScript_cm631")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_c72ag")
+volume_db = -10.0

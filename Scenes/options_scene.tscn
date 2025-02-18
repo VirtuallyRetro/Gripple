@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://difv5iv0aug7u"]
+
+[ext_resource type="Script" uid="uid://cedhvwmfk40rn" path="res://Scripts/options_scene.gd" id="1_4lfpa"]
+[ext_resource type="Texture2D" uid="uid://ckb4348v5jhtp" path="res://Graphics/Blank_Background.png" id="2_ys088"]
+[ext_resource type="Texture2D" uid="uid://cy2me6dwm64td" path="res://Graphics/Option_Banner.png" id="3_bk0o2"]
+[ext_resource type="PackedScene" uid="uid://c4q7ugrtj6to5" path="res://Scenes/back_buttion_scene.tscn" id="4_gt153"]
+[ext_resource type="Texture2D" uid="uid://c5w5b5obl45th" path="res://Graphics/Audio_Enabled.png" id="5_5buxo"]
+[ext_resource type="Texture2D" uid="uid://cia81k013ljto" path="res://Graphics/AudioHeader.png" id="7_hay4a"]
+[ext_resource type="Texture2D" uid="uid://o5kypilwfbxh" path="res://Graphics/Difficulty_header_image.png" id="7_y162r"]
+[ext_resource type="Texture2D" uid="uid://dolnkjor083y2" path="res://Graphics/Easy_Difficulity_Disabled_Image.png" id="8_ijwrq"]
+[ext_resource type="Texture2D" uid="uid://bdtnm5gvitkq1" path="res://Graphics/Hard_Difficulity_Disabled_image.png" id="9_vcsnn"]
+[ext_resource type="Texture2D" uid="uid://laoqwjbkxcw7" path="res://Graphics/Medium_Difficulity_Disabled_Image.png" id="10_o1qf4"]
+
+[sub_resource type="Environment" id="Environment_45y21"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
+[node name="OptionsScene" type="Node2D"]
+script = ExtResource("1_4lfpa")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_45y21")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ys088")
+metadata/_edit_lock_ = true
+
+[node name="OptionsBanner" type="TextureRect" parent="."]
+offset_left = 120.0
+offset_top = 32.0
+offset_right = 520.0
+offset_bottom = 152.0
+texture = ExtResource("3_bk0o2")
+metadata/_edit_lock_ = true
+
+[node name="BackButtionScene" parent="." instance=ExtResource("4_gt153")]
+position = Vector2(224, 376)
+
+[node name="EnableAudioButton" type="Area2D" parent="."]
+position = Vector2(256, 312)
+metadata/_edit_group_ = true
+
+[node name="AudioEnabledImage" type="Sprite2D" parent="EnableAudioButton"]
+position = Vector2(60, 8)
+texture = ExtResource("5_5buxo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnableAudioButton"]
+polygon = PackedVector2Array(3, 2, 6, 0, 8, 0, 13, 1, 16, 4, 17, 8, 25, 8, 25, -2, 38, -4, 49, 1, 49, -4, 57, -4, 57, 10, 64, -5, 70, 7, 70, -2, 83, -2, 84, -1, 84, 4, 86, 4, 86, -2, 93, -3, 94, 6, 102, 5, 102, -2, 116, -5, 121, 15, 104, 20, 103, 16, 87, 20, 87, 16, 81, 19, 72, 19, 70, 18, 67, 19, 65, 17, 62, 17, 60, 19, 55, 18, 48, 13, 48, 17, 39, 18, 39, 16, 26, 19, 25, 9, 17, 9, 16, 14, 11, 17, 3, 16, 1, 13, 0, 7, 1, 4)
+
+[node name="AudioHeaderImage" type="Sprite2D" parent="."]
+position = Vector2(320, 280)
+texture = ExtResource("7_hay4a")
+
+[node name="DifficultyHeaderImage" type="Sprite2D" parent="."]
+position = Vector2(320, 168)
+texture = ExtResource("7_y162r")
+
+[node name="EasyButton" type="Area2D" parent="."]
+position = Vector2(143, 195)
+metadata/_edit_group_ = true
+
+[node name="EasyDifficulityDisabledImage" type="Sprite2D" parent="EasyButton"]
+position = Vector2(49, 13)
+texture = ExtResource("8_ijwrq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EasyButton"]
+polygon = PackedVector2Array(6, 13, 7, 8, 10, 5, 15, 4, 19, 5, 22, 8, 24, 12, 27, 12, 26, 2, 41, 0, 43, 11, 49, 0, 55, 9, 58, 4, 62, 2, 69, 2, 70, 6, 74, 1, 79, 6, 83, 1, 88, 4, 85, 11, 85, 22, 74, 23, 74, 16, 72, 15, 70, 21, 64, 25, 60, 25, 58, 23, 51, 25, 49, 23, 39, 24, 39, 21, 27, 24, 27, 13, 24, 13, 23, 19, 19, 24, 13, 25, 9, 23, 6, 21, 5, 17)
+
+[node name="MediumButton" type="Area2D" parent="."]
+position = Vector2(259, 199)
+metadata/_edit_group_ = true
+
+[node name="MediumDifficulityDisabledImage" type="Sprite2D" parent="MediumButton"]
+position = Vector2(61, 9)
+texture = ExtResource("10_o1qf4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MediumButton"]
+polygon = PackedVector2Array(0, 8, 2, 4, 4, 2, 7, 0, 13, 0, 17, 4, 19, 8, 22, 8, 26, -2, 32, 4, 37, -5, 42, 5, 42, -1, 57, -3, 58, -2, 103, -1, 103, 9, 107, -2, 113, 4, 118, -5, 129, 15, 122, 20, 120, 16, 116, 24, 109, 18, 108, 20, 74, 20, 74, 15, 65, 21, 58, 21, 58, 18, 44, 21, 43, 18, 40, 18, 38, 16, 35, 23, 32, 23, 28, 17, 26, 20, 18, 19, 21, 10, 19, 10, 19, 13, 16, 19, 12, 20, 6, 20, 2, 17, 0, 13)
+
+[node name="HardButton" type="Area2D" parent="."]
+position = Vector2(411, 198)
+metadata/_edit_group_ = true
+
+[node name="HardDifficulityDisabledImage" type="Sprite2D" parent="HardButton"]
+position = Vector2(45, 10)
+texture = ExtResource("9_vcsnn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HardButton"]
+polygon = PackedVector2Array(0, 8, 2, 5, 6, 2, 9, 2, 13, 2, 17, 5, 18, 8, 21, 9, 21, 0, 41, -2, 41, 10, 47, -3, 54, 7, 54, 0, 60, -2, 68, -2, 71, -1, 83, -1, 88, 2, 90, 5, 90, 13, 88, 16, 85, 19, 80, 21, 76, 22, 69, 22, 63, 18, 63, 21, 23, 21, 22, 10, 18, 9, 18, 14, 17, 19, 14, 21, 10, 22, 5, 22, 2, 19, 0, 16, -1, 12)
+
+[connection signal="input_event" from="EnableAudioButton" to="." method="_on_enable_audio_button_input_event"]
+[connection signal="mouse_entered" from="EnableAudioButton" to="." method="_on_enable_audio_button_mouse_entered"]
+[connection signal="mouse_exited" from="EnableAudioButton" to="." method="_on_enable_audio_button_mouse_exited"]
+[connection signal="input_event" from="EasyButton" to="." method="_on_easy_button_input_event"]
+[connection signal="mouse_entered" from="EasyButton" to="." method="_on_easy_button_mouse_entered"]
+[connection signal="mouse_exited" from="EasyButton" to="." method="_on_easy_button_mouse_exited"]
+[connection signal="input_event" from="MediumButton" to="." method="_on_medium_button_input_event"]
+[connection signal="mouse_entered" from="MediumButton" to="." method="_on_medium_button_mouse_entered"]
+[connection signal="mouse_exited" from="MediumButton" to="." method="_on_medium_button_mouse_exited"]
+[connection signal="input_event" from="HardButton" to="." method="_on_hard_button_input_event"]
+[connection signal="mouse_entered" from="HardButton" to="." method="_on_hard_button_mouse_entered"]
+[connection signal="mouse_exited" from="HardButton" to="." method="_on_hard_button_mouse_exited"]

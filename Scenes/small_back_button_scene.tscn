@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://6g4ieroiygcc"]
+
+[ext_resource type="Script" uid="uid://b8tqsqjji83c1" path="res://Scripts/small_back_button_scene.gd" id="1_sdiw3"]
+[ext_resource type="Texture2D" uid="uid://dpfhqwosq04sx" path="res://Graphics/Small_Back_Image.png" id="3_1abhb"]
+
+[node name="SmallBackButtonScene" type="Node2D"]
+script = ExtResource("1_sdiw3")
+
+[node name="SmallBackButton" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="SmallBackImage" type="Sprite2D" parent="SmallBackButton"]
+position = Vector2(27, -1)
+texture = ExtResource("3_1abhb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallBackButton"]
+polygon = PackedVector2Array(0, 0, 19, -22, 27, -15, 17, -4, 30, 7, 30, -4, 51, -6, 51, 9, 32, 10, 21, 23)
+
+[connection signal="input_event" from="SmallBackButton" to="." method="_on_small_back_button_input_event"]
+[connection signal="mouse_entered" from="SmallBackButton" to="." method="_on_small_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="SmallBackButton" to="." method="_on_small_back_button_mouse_exited"]

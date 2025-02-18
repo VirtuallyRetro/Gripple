@@ -1,0 +1,343 @@
+[gd_scene load_steps=30 format=3 uid="uid://cn437rk02cdl8"]
+
+[ext_resource type="Script" uid="uid://bk3owqovesggq" path="res://Scripts/play_scene.gd" id="1_umsiv"]
+[ext_resource type="Texture2D" uid="uid://ckb4348v5jhtp" path="res://Graphics/Blank_Background.png" id="2_8hrl0"]
+[ext_resource type="PackedScene" uid="uid://6g4ieroiygcc" path="res://Scenes/small_back_button_scene.tscn" id="3_pbcok"]
+[ext_resource type="Texture2D" uid="uid://df365n7vi6jqp" path="res://Animation/frame001.png" id="4_h7sie"]
+[ext_resource type="Texture2D" uid="uid://73csxtjy4fie" path="res://Animation/frame002.png" id="5_qknw2"]
+[ext_resource type="Texture2D" uid="uid://lccj7hq5ovj2" path="res://Animation/frame003.png" id="6_h42bf"]
+[ext_resource type="Texture2D" uid="uid://bvr1ocxue60g2" path="res://Animation/frame004.png" id="7_2nge6"]
+[ext_resource type="Texture2D" uid="uid://b1n5ejockeipk" path="res://Animation/frame005.png" id="8_o624w"]
+[ext_resource type="Texture2D" uid="uid://c0htdoxpc7lhf" path="res://Animation/frame006.png" id="9_8rgok"]
+[ext_resource type="Texture2D" uid="uid://cfc55h5gjh28t" path="res://Animation/frame007.png" id="10_nfxcv"]
+[ext_resource type="Texture2D" uid="uid://d0klcw681d8m6" path="res://Animation/frame008.png" id="11_e6yfv"]
+[ext_resource type="Texture2D" uid="uid://be6ycbrticg3p" path="res://Animation/frame009.png" id="12_3ln6m"]
+[ext_resource type="Texture2D" uid="uid://bf71shtjr8yj5" path="res://Animation/frame010.png" id="13_rm2pv"]
+[ext_resource type="Texture2D" uid="uid://8hxc6wep7qvu" path="res://Animation/frame011.png" id="14_a07lj"]
+[ext_resource type="Texture2D" uid="uid://d1gvixsetmip2" path="res://Tiles Animation/Frame000.png" id="15_dwxha"]
+[ext_resource type="Texture2D" uid="uid://f6dliey4huw1" path="res://Tiles Animation/Frame001.png" id="16_hkfjg"]
+[ext_resource type="Texture2D" uid="uid://tys6uwmtvvi8" path="res://Tiles Animation/Frame002.png" id="17_7onh4"]
+[ext_resource type="Texture2D" uid="uid://bxpwp5eg2no1u" path="res://Tiles Animation/frame003.png" id="18_igbia"]
+[ext_resource type="Texture2D" uid="uid://dkjhdkf4dhqes" path="res://Graphics/Spinner_Image.png" id="18_k3imc"]
+[ext_resource type="Texture2D" uid="uid://cui8skcsvn560" path="res://Graphics/Pause_Button_Image.png" id="19_vdd30"]
+[ext_resource type="Texture2D" uid="uid://dygcirvs7fvja" path="res://Graphics/Pattern0.png" id="21_d3v5s"]
+[ext_resource type="Texture2D" uid="uid://d3njy6f41htyt" path="res://Graphics/Timer_Expired.png" id="23_f6owf"]
+[ext_resource type="Texture2D" uid="uid://d4dlw01qg88yu" path="res://Graphics/Darken_Layer.png" id="25_0je02"]
+[ext_resource type="Texture2D" uid="uid://b1ov34d00e644" path="res://Graphics/Resume_Button_Image.png" id="26_hh0lj"]
+[ext_resource type="SystemFont" uid="uid://b7agjpi0kc4br" path="res://Resources/system_fonts.tres" id="27_tvh5c"]
+
+[sub_resource type="Environment" id="Environment_rv65v"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_666i0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h7sie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qknw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h42bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2nge6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o624w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8rgok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nfxcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e6yfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3ln6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rm2pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a07lj")
+}],
+"loop": false,
+"name": &"Timer",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fufx0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_hkfjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dwxha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7onh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_igbia")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtedx"]
+size = Vector2(64, 64)
+
+[node name="PlayScene" type="Node2D"]
+script = ExtResource("1_umsiv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rv65v")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hrl0")
+metadata/_edit_lock_ = true
+
+[node name="SmallBackButtonScene" parent="." instance=ExtResource("3_pbcok")]
+position = Vector2(32, 424)
+metadata/_edit_lock_ = true
+
+[node name="PauseButton" type="Area2D" parent="."]
+position = Vector2(552, 392)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="PauseButtonImage" type="Sprite2D" parent="PauseButton"]
+position = Vector2(32, 32)
+texture = ExtResource("19_vdd30")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PauseButton"]
+polygon = PackedVector2Array(11, 9, 30, 6, 31, 9, 51, 7, 52, 53, 35, 54, 31, 52, 12, 54)
+
+[node name="GameVideoTimer" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 64)
+sprite_frames = SubResource("SpriteFrames_666i0")
+animation = &"Timer"
+frame_progress = 0.469545
+speed_scale = 0.05
+metadata/_edit_lock_ = true
+
+[node name="DestinationPattern" type="Sprite2D" parent="."]
+position = Vector2(576, 64)
+texture = ExtResource("21_d3v5s")
+metadata/_edit_lock_ = true
+
+[node name="SpinnerImage" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(32, 288)
+texture = ExtResource("18_k3imc")
+
+[node name="Tile0" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(224, 144)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile1" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(288, 144)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile2" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(352, 144)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile3" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(416, 144)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile4" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(224, 208)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile5" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(288, 208)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile6" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(352, 208)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile7" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(416, 208)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile8" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(224, 272)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile9" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(288, 272)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile10" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(352, 272)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile11" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(416, 272)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile12" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(224, 336)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile13" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(288, 336)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile14" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(352, 336)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile15" type="AnimatedSprite2D" parent="." groups=["tiles"]]
+position = Vector2(416, 336)
+sprite_frames = SubResource("SpriteFrames_fufx0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="TopLeftPad" type="Area2D" parent="." groups=["spinners"]]
+position = Vector2(256, 176)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeftPad"]
+shape = SubResource("RectangleShape2D_gtedx")
+metadata/_edit_group_ = true
+
+[node name="TopRightPad" type="Area2D" parent="." groups=["spinners"]]
+position = Vector2(384, 176)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRightPad"]
+shape = SubResource("RectangleShape2D_gtedx")
+
+[node name="CentrePad" type="Area2D" parent="." groups=["spinners"]]
+position = Vector2(320, 240)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CentrePad"]
+shape = SubResource("RectangleShape2D_gtedx")
+
+[node name="BottomLeftPad" type="Area2D" parent="." groups=["spinners"]]
+position = Vector2(256, 304)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeftPad"]
+shape = SubResource("RectangleShape2D_gtedx")
+
+[node name="BottomRightPad" type="Area2D" parent="." groups=["spinners"]]
+position = Vector2(384, 304)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRightPad"]
+shape = SubResource("RectangleShape2D_gtedx")
+
+[node name="TimerExpiredImage" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 424)
+texture = ExtResource("23_f6owf")
+
+[node name="TimerExpiredTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DarkenLayer" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("25_0je02")
+metadata/_edit_lock_ = true
+
+[node name="ResumeButton" type="Area2D" parent="."]
+process_mode = 3
+visible = false
+position = Vector2(168, 216)
+metadata/_edit_group_ = true
+
+[node name="ResumeButtonImage" type="Sprite2D" parent="ResumeButton"]
+position = Vector2(152, 32)
+texture = ExtResource("26_hh0lj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ResumeButton"]
+polygon = PackedVector2Array(4, 11, 22, 4, 37, 3, 54, 9, 54, 2, 91, -5, 95, 9, 131, -2, 142, 25, 144, 4, 161, 1, 162, 27, 172, 25, 172, 4, 189, 1, 192, 36, 205, -2, 224, 19, 237, -8, 258, 34, 257, 1, 290, -5, 296, 8, 273, 14, 273, 18, 297, 15, 298, 22, 274, 31, 275, 33, 301, 29, 306, 46, 260, 59, 259, 48, 247, 54, 242, 45, 227, 67, 210, 49, 204, 57, 194, 54, 177, 58, 174, 52, 143, 57, 143, 42, 128, 56, 114, 61, 100, 50, 60, 58, 58, 52, 52, 61, 49, 64, 26, 52, 26, 61, 10, 66, 5, 32)
+
+[node name="LabelTutorial" type="Label" parent="."]
+visible = false
+offset_left = 155.0
+offset_top = 400.0
+offset_right = 483.0
+offset_bottom = 448.0
+theme_override_fonts/font = ExtResource("27_tvh5c")
+text = "Rotate the tiles in the corners and centre with the mouse buttons."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TimerTutorial" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="input_event" from="PauseButton" to="." method="_on_pause_button_input_event"]
+[connection signal="mouse_entered" from="PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="mouse_exited" from="PauseButton" to="." method="_on_pause_button_mouse_exited"]
+[connection signal="animation_finished" from="GameVideoTimer" to="." method="_on_game_video_timer_animation_finished"]
+[connection signal="frame_changed" from="GameVideoTimer" to="." method="_on_game_video_timer_frame_changed"]
+[connection signal="input_event" from="TopLeftPad" to="." method="_spinner_input_event"]
+[connection signal="input_event" from="TopRightPad" to="." method="_spinner_input_event"]
+[connection signal="input_event" from="CentrePad" to="." method="_spinner_input_event"]
+[connection signal="input_event" from="BottomLeftPad" to="." method="_spinner_input_event"]
+[connection signal="input_event" from="BottomRightPad" to="." method="_spinner_input_event"]
+[connection signal="timeout" from="TimerExpiredTimer" to="." method="_on_timer_expired_timer_timeout"]
+[connection signal="input_event" from="ResumeButton" to="." method="_on_resume_button_input_event"]
+[connection signal="mouse_entered" from="ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="mouse_exited" from="ResumeButton" to="." method="_on_resume_button_mouse_exited"]
+[connection signal="timeout" from="TimerTutorial" to="." method="_on_timer_tutorial_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

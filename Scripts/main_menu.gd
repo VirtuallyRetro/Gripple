@@ -33,19 +33,19 @@ func display_scores_button() -> void:
 
 func _on_play_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 		get_tree().change_scene_to_file("res://Scenes/play_scene.tscn")
 
 
 func _on_options_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 		get_tree().change_scene_to_file("res://Scenes/options_scene.tscn")
 
 
 func _on_high_score_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 		get_tree().change_scene_to_file("res://Scenes/high_score_scene.tscn")
 
 

@@ -7,7 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	if Game_Globals.achievement_type != 0 or Game_Globals.current_game_timer_bonus > 0:
-		SoundManager.play_sound_by_name("winner.mp3", false)
+		SoundManager.play_sound("winner.mp3", false)
 	else:
 		$WinnerBanner.texture = load("res://Graphics/Complete_Banner_Image.png")
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _on_next_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 		get_tree().change_scene_to_file("res://Scenes/play_scene.tscn")		
 
 

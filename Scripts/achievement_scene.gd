@@ -14,7 +14,7 @@ func _ready() -> void:
 		3:
 			achievement_banner.texture = load("res://Graphics/Achievement_Best_Time.png")
 	
-	SoundManager.play_sound_by_name("achievement.mp3", false)
+	SoundManager.play_sound("achievement.mp3", false)
 
 
 func _on_timer_timeout() -> void:

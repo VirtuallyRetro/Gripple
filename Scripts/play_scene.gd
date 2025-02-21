@@ -209,7 +209,7 @@ func get_closest_spinner() -> int:
 
 func _on_game_video_timer_frame_changed() -> void:
 	if Game_Globals.audio_enabled and Game_Globals.current_game_timer_bonus > 0:
-		SoundManager.play_sound_by_name("countDownTimer.mp3", true)
+		SoundManager.play_sound("countDownTimer.mp3", true)
 		
 	Game_Globals.current_game_timer_bonus -= 10
 	if Game_Globals.current_game_timer_bonus < 0:
@@ -217,7 +217,7 @@ func _on_game_video_timer_frame_changed() -> void:
 
 
 func _on_game_video_timer_animation_finished() -> void:
-	SoundManager.play_sound_by_name("timerExpired.mp3", false)
+	SoundManager.play_sound("timerExpired.mp3", false)
 	$TimerExpiredImage.visible = true
 	$TimerExpiredTimer.start()
 	
@@ -238,7 +238,7 @@ func _on_timer_tutorial_timeout() -> void:
 
 func _on_resume_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 		$ResumeButton.visible = false
 		$DarkenLayer.visible = false
 		get_tree().paused = false
@@ -247,7 +247,7 @@ func _on_resume_button_input_event(_viewport: Node, event: InputEvent, _shape_id
 func _on_pause_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		if Game_Globals.audio_enabled:
-			SoundManager.play_sound_by_name("mouse-click.mp3", true)
+			SoundManager.play_sound("mouse-click.mp3", true)
 			await get_tree().create_timer(0.25).timeout
 		$ResumeButton.visible = true
 		$DarkenLayer.visible = true

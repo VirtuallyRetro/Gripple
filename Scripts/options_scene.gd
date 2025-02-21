@@ -20,7 +20,7 @@ func _on_enable_audio_button_input_event(_viewport: Node, event: InputEvent, _sh
 		Game_Globals.audio_enabled = not Game_Globals.audio_enabled
 		SoundManager.set_sound_enabled(Game_Globals.audio_enabled)
 		set_audio_enabled_button()
-		SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound("mouse-click.mp3", true)
 
 
 func _on_easy_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -49,7 +49,7 @@ func set_audio_enabled_button() -> void:
 
 
 func set_difficulty(difficulty: int) -> void:
-	SoundManager.play_sound_by_name("mouse-click.mp3", true)
+	SoundManager.play_sound("mouse-click.mp3", true)
 	clear_difficulity_image()
 	Game_Globals.game_difficulty = difficulty
 	set_difficulity_image()	

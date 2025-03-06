@@ -1,6 +1,6 @@
 # Gripple
 
-Gripple a game I created many years ago on the Amiga but recently ported to Godot.
+Gripple a game I created many years ago on the Amiga but recently ported to Godot 4.4.
 
 # Screen Shots
 

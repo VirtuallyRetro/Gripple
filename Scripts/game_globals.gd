@@ -42,13 +42,13 @@ func _notification(what: int) -> void:
 func save_gamedata() -> void:
 	var file_data: String
 	
-	file_data = XmlTools.add_new_xml_key("audio_enabled", str(audio_enabled), file_data)
-	file_data = XmlTools.add_new_xml_key("tutorial_enabled", str(tutorial_enabled), file_data)
-	file_data = XmlTools.add_new_xml_key("high_score", str(high_score), file_data)
-	file_data = XmlTools.add_new_xml_key("best_time", str(best_time), file_data)
-	file_data = XmlTools.add_new_xml_key("fewest_moves", str(fewest_moves), file_data)
-	file_data = XmlTools.add_new_xml_key("high_score_type", str(high_score_type), file_data)
-	file_data = XmlTools.add_new_xml_key("game_difficulty", str(game_difficulty), file_data)
+	file_data = XmlTools.add_key("audio_enabled", str(audio_enabled), file_data)
+	file_data = XmlTools.add_key("tutorial_enabled", str(tutorial_enabled), file_data)
+	file_data = XmlTools.add_key("high_score", str(high_score), file_data)
+	file_data = XmlTools.add_key("best_time", str(best_time), file_data)
+	file_data = XmlTools.add_key("fewest_moves", str(fewest_moves), file_data)
+	file_data = XmlTools.add_key("high_score_type", str(high_score_type), file_data)
+	file_data = XmlTools.add_key("game_difficulty", str(game_difficulty), file_data)
 	
 	var file: Object = FileAccess.open("user://gripple.dat", FileAccess.WRITE)
 	file.store_string(file_data)
@@ -69,20 +69,16 @@ func load_gamedata() -> void:
 	else:
 		#This is where we pass the save file
 		#only process the high score table if a high score has been saved
-		high_score = XmlTools.get_xml_key_data("high_score", file_data).to_int()
+		high_score = XmlTools.get_int_key("high_score", file_data)
 		if high_score > 0:
 			#Process the remaining high score table
-			best_time = XmlTools.get_xml_key_data("best_time", file_data).to_int()
-			fewest_moves = XmlTools.get_xml_key_data("fewest_moves", file_data).to_int()
-			high_score_type = XmlTools.get_xml_key_data("high_score_type", file_data).to_int()
+			best_time = XmlTools.get_int_key("best_time", file_data)
+			fewest_moves = XmlTools.get_int_key("fewest_moves", file_data)
+			high_score_type = XmlTools.get_int_key("high_score_type", file_data)
 
-		game_difficulty = XmlTools.get_xml_key_data("game_difficulty", file_data).to_int()
+		game_difficulty = XmlTools.get_int_key("game_difficulty", file_data)
 		if game_difficulty < 1:
 			game_difficulty = 1
 
-		if XmlTools.get_xml_key_data("audio_enabled", file_data) == "false":
-			audio_enabled = false
-				
-		if XmlTools.get_xml_key_data("tutorial_enabled", file_data) == "false":
-			tutorial_enabled = false
-		
+		audio_enabled = XmlTools.get_bool_key("audio_enabled", file_data)
+		tutorial_enabled = XmlTools.get_bool_key("tutorial_enabled", file_data)

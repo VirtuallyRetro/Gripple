@@ -1,5 +1,5 @@
 #----------------------------------------------------
-# Gripple by RYN for Godot 4.3.
+# Gripple by RYN for Godot 4.4.
 # Play Script
 #----------------------------------------------------
 extends Node2D
@@ -238,6 +238,7 @@ func _on_timer_tutorial_timeout() -> void:
 
 func _on_resume_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
+		SoundManager.stop_all_sounds() # for any paused sounds
 		SoundManager.play_sound("mouse-click.mp3", true)
 		$ResumeButton.visible = false
 		$DarkenLayer.visible = false
@@ -248,7 +249,7 @@ func _on_pause_button_input_event(_viewport: Node, event: InputEvent, _shape_idx
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		if Game_Globals.audio_enabled:
 			SoundManager.play_sound("mouse-click.mp3", true)
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(0.5).timeout
 		$ResumeButton.visible = true
 		$DarkenLayer.visible = true
 		get_tree().paused = true
